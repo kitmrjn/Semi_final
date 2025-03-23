@@ -1,0 +1,318 @@
+/* Recent Questions Section */
+.recent-questions-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.recent-questions {
+  margin: 0 20px;
+  width: 100%; /* Full width for smaller screens */
+  max-width: 700px; /* Limit width for larger screens */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.recent-questions h2 {
+  text-align: center;
+  color: #800000;
+  font-size: 24px; /* Default font size */
+}
+
+.question {
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  transition: max-height 0.3s ease-in-out;
+  width: 100%;
+}
+
+.question.expanded {
+  max-height: 1000px;
+  overflow-y: auto;
+}
+
+.question-header {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.question-info {
+  flex: 1;
+}
+
+.question-info h3 {
+  font-size: 1.2rem;
+  color: #800000;
+  margin-bottom: 3px;
+}
+
+.timestamp {
+  font-size: 0.8rem;
+  color: #777;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.timestamp .username {
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+}
+
+.timestamp .time-ago {
+  font-size: 12px;
+  color: #666;
+}
+
+.answer-preview {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.4;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 3px 12px 6px 12px;
+  margin-bottom: 10px;
+}
+
+.answer-full {
+  display: none;
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 10px;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.question-photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.question-photo {
+  width: 100%; /* Ensure the image takes up the full width of its container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px;
+  margin-top: 10px;
+  display: block;
+  overflow: hidden;
+}
+
+.question-photo-thumbnail {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 10px;
+  display: block;
+}
+
+.question-content {
+  padding-bottom: 20px; /* Add margin to the bottom */
+}
+
+.photo-container {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Single photo takes 100% width */
+.photo-container.single-photo {
+  width: 100%;
+}
+
+/* Multiple photos take 48% width each */
+.photo-container.multiple-photos {
+  width: 48%;
+}
+
+.photo-count-overlay {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Container for the buttons at the bottom */
+.question-actions {
+  display: flex;
+  justify-content: space-between; /* Space between left and right buttons */
+  align-items: center; /* Align buttons vertically */
+  margin-top: 10px;
+  width: 100%; /* Ensure the container takes full width */
+}
+
+/* Style the answer button (left side) */
+.answer-button {
+  padding: 8px 12px; /* Adjust padding for better spacing */
+  background-color: rgba(128, 0, 0, 0.1); /* Semi-transparent background (10% opacity) */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Slightly rounded corners */
+  cursor: pointer;
+  font-size: 1rem; /* Base font size */
+  color: #800000; /* Match the icon and text color to your theme */
+  display: inline-flex; /* Align icon and text properly */
+  align-items: center;
+  gap: 8px; /* Space between icon and text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Style the report button (right side) */
+.report-button {
+  padding: 8px 12px; /* Adjust padding for better spacing */
+  background-color: rgba(128, 0, 0, 0.1); /* Semi-transparent background (10% opacity) */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Slightly rounded corners */
+  cursor: pointer;
+  font-size: 1rem; /* Base font size */
+  color: #800000; /* Match the icon and text color to your theme */
+  display: inline-flex; /* Align icon and text properly */
+  align-items: center;
+  gap: 8px; /* Space between icon and text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover effect for both buttons */
+.answer-button:hover, .report-button:hover {
+  color: #e0b3b3; /* Darker color on hover */
+  background-color: #5a0000; /* Slightly darker semi-transparent background on hover (20% opacity) */
+}
+
+/* Style the Bootstrap icons */
+.answer-button i, .report-button i {
+  font-size: 1.2rem; /* Slightly larger icon */
+  color: inherit; /* Inherit the color from the button */
+}
+
+/* Pagination Styles */
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pagination a {
+  padding: 8px 16px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  color: #333;
+  margin: 0 4px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination a.active {
+  background-color: #800000;
+  color: white;
+  border: 1px solid #800000;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .recent-questions h2 {
+      font-size: 20px; /* Smaller heading */
+  }
+
+  .question {
+      padding: 12px; /* Reduce padding */
+  }
+
+  .question-info h3 {
+      font-size: 16px; /* Smaller question title */
+  }
+
+  .timestamp {
+      font-size: 12px; /* Smaller timestamp */
+  }
+
+  .answer-preview {
+      font-size: 14px; /* Smaller preview text */
+  }
+
+  .question-photos {
+      gap: 8px; /* Reduce gap between photos */
+  }
+
+  .photo-container.multiple-photos {
+      width: 48%; /* Keep two photos per row */
+  }
+
+  .question-actions {
+      margin-top: 8px; /* Reduce margin */
+  }
+
+  .answer-button, .report-button {
+      padding: 6px 10px; /* Reduce button padding */
+      font-size: 0.9rem; /* Smaller button text */
+  }
+}
+
+@media (max-width: 480px) {
+  .recent-questions h2 {
+      font-size: 18px; /* Even smaller heading */
+  }
+
+  .question {
+      padding: 10px; /* Further reduce padding */
+  }
+
+  .question-info h3 {
+      font-size: 14px; /* Even smaller question title */
+  }
+
+  .timestamp {
+      font-size: 10px; /* Even smaller timestamp */
+  }
+
+  .answer-preview {
+      font-size: 12px; /* Even smaller preview text */
+  }
+
+  .question-photos {
+      gap: 6px; /* Further reduce gap between photos */
+  }
+
+  .photo-container.multiple-photos {
+      width: 48%; /* Keep two photos per row */
+  }
+
+  .question-actions {
+      margin-top: 6px; /* Further reduce margin */
+  }
+
+  .answer-button, .report-button {
+      padding: 5px 8px; /* Further reduce button padding */
+      font-size: 0.8rem; /* Even smaller button text */
+  }
+}
